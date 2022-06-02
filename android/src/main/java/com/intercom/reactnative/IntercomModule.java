@@ -51,7 +51,7 @@ public class IntercomModule extends ReactContextBaseJavaModule {
 
   public static boolean isIntercomPush(RemoteMessage remoteMessage) {
     try {
-      Map message = remoteMessage.getData();
+      Map<String, String> message = remoteMessage.getData();
       return intercomPushClient.isIntercomPush(message);
     } catch (Exception err) {
       Log.e(NAME, "isIntercomPush error:");
@@ -63,7 +63,7 @@ public class IntercomModule extends ReactContextBaseJavaModule {
   public static void handleRemotePushMessage(@NonNull Application application, RemoteMessage
     remoteMessage) {
     try {
-      Map message = remoteMessage.getData();
+      Map<String, String> message = remoteMessage.getData();
       intercomPushClient.handlePush(application, message);
     } catch (Exception err) {
       Log.e(NAME, "handleRemotePushMessage error:");
